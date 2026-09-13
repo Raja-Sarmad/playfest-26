@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 const LINKS = [
   { label: "Home", href: "#home" },
@@ -34,17 +33,16 @@ export default function Navbar() {
         }`}
       >
         <div className="page-gutter mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 sm:h-[3.75rem]">
+          
+          {/* LOGO & TITLE (Background removed, pure transparent logo) */}
           <a href="#home" className="flex items-center gap-2.5 pr-5">
-            <span className="logo-chip relative h-10 w-10 shrink-0 sm:h-11 sm:w-11">
-              <Image
-                src="/playfestlogo.png"
-                alt="PlayFest '26"
-                width={44}
-                height={44}
-                className="h-full w-full object-cover"
-                priority
+            <div className="relative flex h-11 w-11 shrink-0 items-center justify-center sm:h-12 sm:w-12">
+              <img
+                src="/Playfestlogo.png?v=3"
+                alt="PlayFest Logo"
+                className="h-full w-full object-contain"
               />
-            </span>
+            </div>
             <span className="font-display leading-none">
               <span className="relative inline-block text-[15px] font-bold tracking-[0.14em] text-navy-900 sm:text-base">
                 PLAYFEST
@@ -58,6 +56,7 @@ export default function Navbar() {
             </span>
           </a>
 
+          {/* NAV LINKS */}
           <div className="hidden items-center lg:flex">
             {LINKS.map((l) => (
               <a
@@ -71,6 +70,7 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* REGISTER BUTTON */}
           <div className="flex items-center gap-2">
             <a
               href="#contact"
@@ -99,6 +99,7 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* MOBILE MENU */}
         {menuOpen && (
           <div className="border-t border-blue-100 bg-white lg:hidden">
             {LINKS.map((l) => (
