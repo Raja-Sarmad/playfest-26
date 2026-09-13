@@ -83,6 +83,14 @@ h3,
   background-clip: text;
 }
 
+.hero-neon {
+  background: linear-gradient(180deg, #ffffff 0%, #7ae0ff 42%, #0a8fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 18px rgba(58, 214, 255, 0.45));
+}
+
 .electric-text {
   background: linear-gradient(135deg, #2eb4ff 0%, #006fd6 100%);
   -webkit-background-clip: text;
@@ -229,6 +237,66 @@ h3,
   clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
 }
 
+.team-line {
+  width: 2px;
+  height: 22px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #0a8fff, #3ad6ff);
+  border-radius: 99px;
+}
+
+.team-rail {
+  height: 2px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, #0a8fff, #e8b63a, #0a8fff, transparent);
+}
+
+.game-card {
+  --game-glow: rgba(58, 214, 255, 0.45);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(58, 214, 255, 0.16);
+  background:
+    radial-gradient(120% 80% at 0% 0%, color-mix(in srgb, var(--game-glow) 22%, transparent), transparent 55%),
+    linear-gradient(180deg, #0a1c3a 0%, #06101f 100%);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.game-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    color-mix(in srgb, var(--game-glow) 18%, transparent) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.game-card:hover {
+  transform: translateY(-8px) rotate(-0.4deg);
+  border-color: color-mix(in srgb, var(--game-glow) 80%, white);
+  box-shadow:
+    0 24px 50px -24px var(--game-glow),
+    0 0 0 1px color-mix(in srgb, var(--game-glow) 35%, transparent);
+}
+
+.game-card:hover::before {
+  animation: gameSlash 0.7s ease;
+}
+
+@keyframes gameSlash {
+  to {
+    transform: translateX(120%);
+  }
+}
+
 .section-rule {
   background: linear-gradient(90deg, transparent, var(--blue-500), var(--gold-400), var(--blue-500), transparent);
 }
@@ -244,6 +312,11 @@ h3,
 
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out both;
+}
+
+.reg-select option {
+  color: #0a1f42;
+  background-color: #ffffff;
 }
 
 @media (prefers-reduced-motion: reduce) {
